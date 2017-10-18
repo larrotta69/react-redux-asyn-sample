@@ -1,0 +1,36 @@
+{
+  "name": "front",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "history": "^4.7.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.13",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.15.6",
+    "roboto-npm-webfont": "^0.0.4",
+    "styled-components": "^2.2.1",
+    "styled-media-queries": "^1.0.1",
+    "styled-normalize": "^2.2.1",
+    "styled-props": "^1.1.1",
+    "styled-reset": "^0.1.2",
+    "yarn": "^1.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "lint-js": "eslint src/",
+    "lint": "yarn run lint-js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.0",
+    "redux-devtools-extension": "^2.13.2"
+  }
+}
