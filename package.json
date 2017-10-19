@@ -15,7 +15,7 @@
     "redux-saga": "^0.15.6",
     "roboto-npm-webfont": "^0.0.4",
     "styled-components": "^2.2.1",
-    "styled-media-queries": "^1.0.1",
+    "styled-media-query": "^2.0.1",
     "styled-normalize": "^2.2.1",
     "styled-props": "^1.1.1",
     "styled-reset": "^0.1.2",

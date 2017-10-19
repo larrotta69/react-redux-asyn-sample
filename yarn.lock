@@ -5993,7 +5993,7 @@ style-loader@0.18.2:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
-styled-components@^2.2.1:
+styled-components@2.x.x, styled-components@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-2.2.1.tgz#f4835f1001c37bcc301ac3865b5d93466de4dd5b"
   dependencies:
@@ -6010,6 +6010,12 @@ styled-components@^2.2.1:
 styled-media-queries@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/styled-media-queries/-/styled-media-queries-1.0.1.tgz#35c17109278c1fd611ee5cb8465103cc057a8f64"
+
+styled-media-query@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/styled-media-query/-/styled-media-query-2.0.1.tgz#a6fa0ba0513c6987f4f892677a558c20d4250503"
+  dependencies:
+    styled-components "2.x.x"
 
 styled-normalize@^2.2.1:
   version "2.2.1"

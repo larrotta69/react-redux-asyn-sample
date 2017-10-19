@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import {todoUpdateCurrent, todoAdd} from './TodoFeatures'
 
-import {colors} from '../../styles/mixins'
+import {colors, media} from '../../styles/mixins'
 
 const Form = (props) => {
     const {currentTodo, todoUpdateCurrent, todoAdd} = props
@@ -34,15 +34,23 @@ const Form = (props) => {
 */
 const StyledForm = styled.form`
     padding: 15px;
-    background-color: ${colors.mainGreen};
+    background-color: ${colors.mainPurple};
 
     input {
-        background: ${colors.secondGreen};
+        background: ${colors.secondPurple};
         border: none;
         padding: 15px 5px;
         width: 100%;
         border-radius: 5px;
+
+        ${media.medium`
+            background-color: ${colors.secondGreen};
+        `}
     }
+
+    ${media.medium`
+        background-color: ${colors.mainGreen};
+    `}
 `
 /*
     Form propTypes

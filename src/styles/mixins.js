@@ -1,18 +1,20 @@
-import { mediaQuery } from 'styled-media-queries'
+import { generateMedia } from 'styled-media-query'
 
 export const colors = {
-    mainGreen: '#17ba98',
-    secondGreen: '#65c4ae',
+    mainGreen: '#15a385',
+    secondGreen: '#18ba97',
+    mainPurple: '#8515a3',
+    secondPurple: '#72128d',
     white: 'white',
     gray: '#eef3f6',
     lightGray: '#d2e1ea'
 }
 
-export const sizes = {
-    medium: 768,
-    large: 992,
-    wide: 1200,
-}
+const mediaQuery = generateMedia({
+  mobile: '768px',
+  tablet: '992px',
+  desktop: '1200',
+})
 
 export const box = () => `
     border-radius: 5px;
@@ -20,8 +22,8 @@ export const box = () => `
 `
 
 export const media = {
-    smallOnly: mediaQuery`(max-width: ${(sizes.medium - 1) / 16}em)`,
-    medium: mediaQuery`(min-width: ${sizes.medium / 16}em)`,
-    large: mediaQuery`(min-width: ${sizes.large / 16}em)`,
-    wide: mediaQuery`(min-width: ${sizes.wide / 16}em)`,
+    mobile: mediaQuery.lessThan('mobile'),
+    medium: mediaQuery.greaterThan('mobile'),
+    large: mediaQuery.greaterThan('tablet'),
+    wide: mediaQuery.greaterThan('desktop'),
 }

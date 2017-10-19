@@ -37,7 +37,7 @@ class App extends React.Component {
         const {isLoading} = this.state
         const {match} = this.props
         return (
-            <StyledApp className="App">
+            <StyledApp>
                 <Form />
                 <Filters filtersContent={filterOptions} currentFilter={match.params.filter}/>
                 <List currentFilter={match.params.filter} />
