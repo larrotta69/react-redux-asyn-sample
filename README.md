@@ -1,6 +1,6 @@
 # React Redux Async Sample
 ## Overview
-Welcome to this sample of ToDo list using modern tecnologies.
+Welcome to this sample of ToDo list using modern technologies.
 Always thinking on scaling projects, here is the first version of an example of how I set a SPA project based on those Features:
 
 * Composition of a webpage
