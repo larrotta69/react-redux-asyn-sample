@@ -5,7 +5,7 @@ import {LOADER_ON, LOADER_OFF} from '../../containers/Loader/LoaderFeatures'
 
 import {TODOS_GET, TODOS_GET_SUCCESS, TODO_ADD, TODO_REMOVE, TODO_UPDATE, } from './TodoFeatures'
 
-import {getTodosAPI, addTodosAPI, removeTodoAPI, updateTodoAPI } from '../../api/TodosAPI'
+import {getTodosAPI, addTodosAPI, removeTodoAPI, updateTodoAPI } from '../../api/Todo/TodosAPI'
 
 export function* todoSagas() {
     yield all([
