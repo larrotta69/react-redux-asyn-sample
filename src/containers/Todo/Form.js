@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import {todoUpdateCurrent, todoAdd} from './TodoFeatures'
 
-import {colors, media} from '../../styles/mixins'
+import {colors, media} from '../../styles/variables'
 
 const Form = (props) => {
     const {currentTodo, todoUpdateCurrent, todoAdd} = props

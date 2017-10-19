@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import {Link} from 'react-router-dom'
 
-import {colors} from '../../styles/mixins'
+import {colors} from '../../styles/variables'
 
 const FilterItem = (props) => {
     return (

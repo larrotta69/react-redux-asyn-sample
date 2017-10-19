@@ -6,7 +6,8 @@ import styled from 'styled-components'
 import {todoRemove, todoUpdate, todosGet, filterTodo} from './TodoFeatures'
 import ListItem from './../../components/List/ListItem'
 
-import {box, colors} from '../../styles/mixins'
+import {colors} from '../../styles/variables'
+import {box} from '../../styles/mixins'
 
 class List extends React.Component {
     constructor(props){

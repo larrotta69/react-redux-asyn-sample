@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import {colors} from '../../styles/mixins'
+import {colors} from '../../styles/variables'
 
 const Checkbox = (props) => {
     const {isChecked, change} = props
