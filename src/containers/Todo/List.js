@@ -6,9 +6,6 @@ import styled from 'styled-components'
 import {todoRemove, todoUpdate, todosGet, filterTodo} from './TodoFeatures'
 import ListItem from './../../components/List/ListItem'
 
-import {colors} from '../../styles/variables'
-import {box} from '../../styles/mixins'
-
 class List extends React.Component {
     constructor(props){
         super(props)
@@ -16,17 +13,15 @@ class List extends React.Component {
     }
     render() {
         const {todos, todoRemove, todoUpdate} = this.props
-        return todos ? (
-            <StyledList>
-                {todos.map(todo => (
-                    <ListItem className="todo-list" key={todo.id}
-                        {...todo}
-                        removeHandler={todoRemove}
-                        updateHandler={todoUpdate}
-                    />
-                ))}
+        return <StyledList>
+                {todos && todos.length ?
+                    todos.map(todo => (
+                        <ListItem className="todo-list" key={todo.id}
+                            {...todo}
+                            removeHandler={todoRemove}
+                            updateHandler={todoUpdate}
+                        />)) : <ListItem task="No Results" />}
             </StyledList>
-        ) : null
     }
 }
 /*
@@ -35,24 +30,6 @@ List Styles
 const StyledList = styled.ol`
     list-style: none;
     padding: 0;
-
-    li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: ${colors.white};
-        width: 90%;
-        margin: 10px auto;
-        padding: 15px;
-        ${box()}
-    }
-
-    .todo-list-remove {
-        padding: 0 0 0 15px;
-        font-size: 20px;
-        margin-left: 15px;
-        border-left: 1px solid ${colors.gray};
-    }
 `
 /*
 List propTypes

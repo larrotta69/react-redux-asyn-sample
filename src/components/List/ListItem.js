@@ -5,15 +5,20 @@ import styledProps from 'styled-props'
 
 import Checkbox from '../Form/Checkbox'
 
+import {box} from '../../styles/mixins'
+import {colors} from '../../styles/variables'
+
 const ListItem = (props) => {
     const {done, task, id, removeHandler, updateHandler} = props
     const currentTodo = {id, task, done}
-    return <StyledListItem className="todo-list" done={done}>
-        <p>{task}</p>
-        <div className="todo-list-tools">
-            <Checkbox change={() => updateHandler(currentTodo)} isChecked={done} />
-            <span className="todo-list-remove" onClick={() => removeHandler(id)}>✖</span>
-        </div>
+    return <StyledListItem done={done}>
+        <TaskItem done={done}>{task}</TaskItem>
+        {id ?
+            (<div>
+                <Checkbox change={() => updateHandler(currentTodo)} isChecked={done} />
+                <RemoveItem onClick={() => removeHandler(id)}>✖</RemoveItem>
+            </div>)
+        : null}
     </StyledListItem>
 }
 /*
@@ -25,11 +30,27 @@ const stateStyles = {
     }
 }
 const StyledListItem = styled.li`
-    p{
-        text-decoration: ${styledProps(stateStyles.textDecoration)};
-        color: ${props => props.done ? 'orangered' : 'mediumseagreen'};
-        transition: 0.5s color;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: ${colors.white};
+    width: 90%;
+    margin: 10px auto;
+    padding: 15px;
+    ${box()}
+`
+
+const RemoveItem = styled.span`
+    padding: 0 0 0 15px;
+    font-size: 20px;
+    margin-left: 15px;
+    border-left: 1px solid ${colors.gray};
+`
+
+const TaskItem = styled.p`
+    text-decoration: ${styledProps(stateStyles.textDecoration)};
+    color: ${props => props.done ? 'orangered' : 'mediumseagreen'};
+    transition: 0.5s color;
 `
 /*
     ListItem propTypes

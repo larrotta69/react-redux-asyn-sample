@@ -4,44 +4,43 @@ import {connect} from 'react-redux'
 import styled from 'styled-components'
 
 import Loader from '../../components/Loader/Loader'
+import Error from '../../components/Error/Error'
 import {errorReset} from './../../containers/Error/ErrorFeatures'
 
-import Form from './../../containers/Todo/Form'
-import List from './../../containers/Todo/List'
-import Filters from './../../components/Filters/Filters'
-
-import filterOptions from '../../api/filters'
+import {colors} from '../../styles/variables'
 
 class App extends React.Component {
     constructor(props){
         super(props)
-        const {errorReset} = props
         this.state = {
-            isLoading: false
+            isLoading: false,
+            isError: false
         }
+    }
+    componentWillMount(){
+        const {errorReset} = this.props
         errorReset()
     }
     componentWillReceiveProps(nextProps) {
-        const { history, isError, match } = nextProps
+        const {isError, isLoaderOn} = nextProps
         if (isError) {
-            history.push('/404')
-        }
-        if(Object.getOwnPropertyNames(match.params).length === 0){
             this.setState({
-                isLoading: !this.props.isLoaderOn
+                isError: true
             })
         }
+        this.setState({
+            isLoading: isLoaderOn
+        })
 
     }
     render() {
-        const {isLoading} = this.state
-        const {match} = this.props
+        const {isLoading, isError} = this.state
+        const {errorMsg} = this.props
         return (
             <StyledApp>
-                <Form />
-                <Filters filtersContent={filterOptions} currentFilter={match.params.filter}/>
-                <List currentFilter={match.params.filter} />
+                {this.props.children}
                 {isLoading ? <Loader /> : null}
+                {isError ? <Error errorMsg={errorMsg}/> : null}
             </StyledApp>
         )
     }
@@ -53,7 +52,7 @@ const StyledApp = styled.main`
     max-width: 760px;
     margin: 0 auto;
     min-height: 100vh;
-    background: #eef3f6;
+    background: ${colors.gray};
     height: 100%;
     padding-bottom: 50px;
     position: relative;
@@ -62,19 +61,19 @@ const StyledApp = styled.main`
 App propTypes
 */
 App.propTypes = {
-    todos: PropTypes.array,
-    currentTodo: PropTypes.string,
-    history: PropTypes.object,
     isError: PropTypes.bool,
     isLoaderOn: PropTypes.bool,
     errorReset: PropTypes.func,
-    match: PropTypes.object
+    match: PropTypes.object,
+    children: PropTypes.node,
+    errorMsg: PropTypes.string
 }
 
 
 export default connect(
     (state) => ({
         isError: state.reducerError.isError,
+        errorMsg: state.reducerError.errorMsg,
         isLoaderOn: state.reducerLoader.isLoaderOn
     }),
     {errorReset}

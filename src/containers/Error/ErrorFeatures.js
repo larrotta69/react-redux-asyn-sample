@@ -18,9 +18,9 @@ export const errorReset = () => {
 export const reducerError = (state = defaultState, action) => {
     switch (action.type) {
         case ERROR_ON:
-            return {...state, isError: true, error: action.errorMsg}
+            return {...state, isError: true, errorMsg: action.errorMsg}
         case ERROR_RESET:
-            return {...state, isError: false, error: ''}
+            return {...state, isError: false, errorMsg: ''}
         default:
             return state
     }

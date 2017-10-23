@@ -56,7 +56,7 @@ export const reducerTodo = (state = defaultState, action) => {
 /*
     Todo Filter
 */
-export const filterTodo = (todos, filter) => {
+export const filterTodo = (todos, filter = 'all') => {
     switch (filter) {
         case 'active':
             return todos ? todos.filter(t => !t.done) : null

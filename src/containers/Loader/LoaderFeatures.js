@@ -18,7 +18,7 @@ export const setLoaderOff = () => {
 export const reducerLoader = (state = defaultState, action) => {
     switch (action.type) {
         case LOADER_ON:
-            return {...state, isLoaderOn: true}
+            return {...state, isLoaderOn: true, dan: 'dan'}
         case LOADER_OFF:
             return {...state, isLoaderOn: false}
         default:

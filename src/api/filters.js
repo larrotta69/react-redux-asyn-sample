@@ -2,16 +2,16 @@ export default [
     {
         id: 1,
         name: 'all',
-        goTo: '/all',
+        goTo: '/tasks/all',
     },
     {
         id: 2,
         name: 'active',
-        goTo: '/active',
+        goTo: '/tasks/active',
     },
     {
         id: 3,
         name: 'completed',
-        goTo: '/completed',
+        goTo: '/tasks/completed',
     }
 ]

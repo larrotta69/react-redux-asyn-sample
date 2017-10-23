@@ -9,7 +9,7 @@ import 'roboto-npm-webfont'
 
 import {Provider} from 'react-redux'
 
-import App from './pages/App/App'
+import Home from './pages/Home/Home'
 import Error404 from './pages/Error/Error404'
 import Layout from './pages/Layout/Layout'
 import configureStore from './store'
@@ -26,8 +26,8 @@ const Root = ({store}) => {
     return <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Layout exact path="/" component={App}/>
-                <Layout path="/:filter" component={App}/>
+                <Layout exact path="/" component={Home}/>
+                <Layout path="/tasks/:filter" component={Home}/>
                 <Layout component={Error404} />
             </Switch>
         </BrowserRouter>
