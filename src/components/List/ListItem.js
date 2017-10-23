@@ -8,15 +8,26 @@ import Checkbox from '../Form/Checkbox'
 import {box} from '../../styles/mixins'
 import {colors} from '../../styles/variables'
 
+
+
 const ListItem = (props) => {
     const {done, task, id, removeHandler, updateHandler} = props
     const currentTodo = {id, task, done}
+
+    const handleChangeCheckbox = currentTodo => {
+        updateHandler(currentTodo)
+    }
+
+    const handleClickRemove = id => {
+        removeHandler(id)
+    }
+
     return <StyledListItem done={done}>
         <TaskItem done={done}>{task}</TaskItem>
         {id ?
             (<div>
-                <Checkbox change={() => updateHandler(currentTodo)} isChecked={done} />
-                <RemoveItem onClick={() => removeHandler(id)}>✖</RemoveItem>
+                <Checkbox change={handleChangeCheckbox(currentTodo)} isChecked={done} />
+                <RemoveItem onClick={handleClickRemove(id)}>✖</RemoveItem>
             </div>)
         : null}
     </StyledListItem>

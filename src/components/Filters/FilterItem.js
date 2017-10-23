@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 
 import {colors} from '../../styles/variables'
 
+
 const FilterItem = (props) => {
     return (
         <StyledFilterItem isCurrent={props.isCurrent}>

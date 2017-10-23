@@ -7,12 +7,13 @@ import {colors} from '../../styles/variables'
 import Form from '../../containers/Todo/Form'
 
 const Error404 = (props) => {
+    const handleClickButton = () => {
+        props.history.push('/')
+    }
     return (
         <StyledError404>
             <h2>404 Error</h2>
-            <button onClick={() => {
-                props.history.push('/')
-            }}>Back to Home</button>
+            <button onClick={handleClickButton}>Back to Home</button>
             <Form/>
         </StyledError404>
     )

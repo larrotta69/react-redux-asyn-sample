@@ -30,7 +30,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.0",
     "redux-devtools-extension": "^2.13.2"
   }
 }
