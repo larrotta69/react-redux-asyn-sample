@@ -6,32 +6,30 @@ import {colors} from '../../styles/variables'
 
 const Checkbox = (props) => {
     const {isChecked, change} = props
-    return <StyledCheckbox isChecked={isChecked}>
-        <input type="checkbox" checked={isChecked} onChange={change} />
-    </StyledCheckbox>
+    return <StyledCheckbox checked={isChecked} onChange={change} />
 }
 /*
     Checkbox Styles
 */
-const StyledCheckbox = styled.div`
+const StyledCheckbox = styled.input.attrs({
+    type: "checkbox"
+})`
     display: inline-block;
     position: relative;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: ${colors.mainGreen};
+    border-radius: 50%;
+    -webkit-appearance: none;
 
-    input {
-        width: 20px;
-        height: 20px;
-        background: ${colors.mainGreen};
-        border-radius: 50%;
-        -webkit-appearance: none;
-
-        &:after {
-            content: '✓';
-            font-size: ${props => props.isChecked ? 15 : 0}px;
-            color: white;
-            position: absolute;
-            left: 4px;
-            top: 2px;
-        }
+    &:after {
+        content: '✓';
+        font-size: ${props => props.checked ? 15 : 0}px;
+        color: white;
+        position: absolute;
+        left: 4px;
+        top: 2px;
     }
 `
 /*

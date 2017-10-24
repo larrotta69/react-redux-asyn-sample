@@ -21,11 +21,11 @@ const ListItem = (props) => {
     }
 
     return <StyledListItem done={done}>
-        <TaskItem done={done}>{task}</TaskItem>
+        <StyledTaskItem done={done}>{task}</StyledTaskItem>
         {id ?
             (<div>
                 <Checkbox change={handleChangeCheckbox} isChecked={done} />
-                <RemoveItem onClick={handleClickRemove}>✖</RemoveItem>
+                <StyledRemoveItem onClick={handleClickRemove}>✖</StyledRemoveItem>
             </div>)
         : null}
     </StyledListItem>
@@ -49,14 +49,15 @@ const StyledListItem = styled.li`
     ${box()}
 `
 
-const RemoveItem = styled.span`
+const StyledRemoveItem = styled.span`
+    cursor: pointer;
     padding: 0 0 0 15px;
     font-size: 20px;
     margin-left: 15px;
     border-left: 1px solid ${colors.gray};
 `
 
-const TaskItem = styled.p`
+const StyledTaskItem = styled.p`
     text-decoration: ${styledProps(stateStyles.textDecoration)};
     color: ${props => props.done ? 'orangered' : 'mediumseagreen'};
     transition: 0.5s color;
