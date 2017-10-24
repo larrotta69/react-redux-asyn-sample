@@ -5,9 +5,9 @@ import {connect} from 'react-redux'
 import {todoUpdateCurrent, todoAdd} from './TodoFeatures'
 
 import Input from '../../components/Form/Input'
-import BasicForm from '../../components/Form/BasicForm'
+import Form from '../../components/Form/Form'
 
-class Form extends React.Component {
+class TodoForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -40,20 +40,19 @@ class Form extends React.Component {
     render(){
         const {value} = this.state
         return (
-            <BasicForm onSubmit={this.submitHandler}>
+            <Form onSubmit={this.submitHandler}>
                 <Input type="text"
                     onChange={this.onChangeHandler}
                     value={value}
                     placeholder="Insert task" />
-            </BasicForm>
+            </Form>
         )
     }
-
 }
 /*
     Form propTypes
 */
-Form.propTypes = {
+TodoForm.propTypes = {
     currentTodo: PropTypes.string,
     todoUpdateCurrent: PropTypes.func,
     todoAdd: PropTypes.func,
@@ -62,4 +61,4 @@ Form.propTypes = {
 export default connect(
     (state) => ({currentTodo: state.reducerTodo.currentTodo}),
     {todoUpdateCurrent, todoAdd}
-)(Form)
+)(TodoForm)

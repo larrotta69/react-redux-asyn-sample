@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import {colors} from '../../styles/variables'
 
-import Form from '../../containers/Todo/Form'
+import TodoForm from '../../containers/Todo/TodoForm'
 
 const Error404 = (props) => {
     const handleClickButton = () => {
@@ -14,7 +14,7 @@ const Error404 = (props) => {
         <StyledError404>
             <h2>404 Error</h2>
             <button onClick={handleClickButton}>Back to Home</button>
-            <Form/>
+            <TodoForm/>
         </StyledError404>
     )
 }

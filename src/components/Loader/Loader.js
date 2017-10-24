@@ -18,7 +18,7 @@ const StyledLoader = styled.div`
     top: 0;
     bottom: 0;
     background: red;
-    opacity: 1;
+    opacity: 0.5;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {todoRemove, todoUpdate, todosGet, filterTodo} from './TodoFeatures'
 import ListItem from './../../components/List/ListItem'
 
-class List extends React.Component {
+class TodoList extends React.Component {
     constructor(props){
         super(props)
         props.todosGet()
@@ -28,7 +28,7 @@ class List extends React.Component {
 /*
 List propTypes
 */
-List.propTypes = {
+TodoList.propTypes = {
     todos: PropTypes.array,
     todoRemove: PropTypes.func,
     todoUpdate: PropTypes.func,
@@ -38,4 +38,4 @@ List.propTypes = {
 export default connect(
     (state, ownProps) => ({todos: filterTodo(state.reducerTodo.todos, ownProps.currentFilter)}),
     {todoRemove, todoUpdate, todosGet}
-)(List)
+)(TodoList)

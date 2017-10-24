@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import {colors} from '../../styles/variables'
 import {media} from '../../styles/mixins'
 
-const BasicForm = (props) => {
+const Form = (props) => {
     const {onSubmit, children} = props
     return (
         <StyledForm onSubmit={onSubmit}>
@@ -27,9 +27,9 @@ const StyledForm = styled.form`
 /*
     Form propTypes
 */
-BasicForm.propTypes = {
+Form.propTypes = {
     onSubmit: PropTypes.func,
     children: PropTypes.node
 }
 
-export default BasicForm
+export default Form
