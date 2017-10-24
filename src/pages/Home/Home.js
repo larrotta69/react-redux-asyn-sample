@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import App from '../App/App'
+import Page from '../Page/Page'
 import TodoForm from './../../containers/Todo/TodoForm'
 import TodoList from './../../containers/Todo/TodoList'
 import Filters from './../../components/Filters/Filters'
@@ -11,11 +11,11 @@ import filterOptions from '../../api/filters'
 const Home = (props) => {
     const {match} = props
     return (
-        <App match={match}>
+        <Page match={match}>
             <TodoForm />
             <Filters filtersContent={filterOptions} currentFilter={match.params.filter}/>
             <TodoList currentFilter={match.params.filter} />
-        </App>
+        </Page>
     )
 }
 /*
