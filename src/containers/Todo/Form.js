@@ -1,20 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import styled from 'styled-components'
 
 import {todoUpdateCurrent, todoAdd} from './TodoFeatures'
 
-import {colors} from '../../styles/variables'
-import {media} from '../../styles/mixins'
+import Input from '../../components/Form/Input'
+import BasicForm from '../../components/Form/BasicForm'
 
 const Form = (props) => {
     const {currentTodo, todoUpdateCurrent, todoAdd} = props
     const updateCurrentHandler = evt => {
         todoUpdateCurrent(evt.target.value)
     }
-    const submitHandler = evt => {
-        evt.preventDefault()
+    const submitHandler = (e) => {
+        e.preventDefault()
         todoAdd({
             id: Math.floor(Math.random() * (5000 - 5) + 5),
             task: props.currentTodo,
@@ -22,37 +21,14 @@ const Form = (props) => {
         })
     }
     return (
-        <StyledForm onSubmit={submitHandler}>
-            <input type="text"
+        <BasicForm onSubmit={submitHandler}>
+            <Input type="text"
                 onChange={updateCurrentHandler}
                 value={currentTodo}
                 placeholder="Insert task" />
-        </StyledForm>
+        </BasicForm>
     )
 }
-/*
-    Form Styles
-*/
-const StyledForm = styled.form`
-    padding: 15px;
-    background-color: ${colors.mainPurple};
-
-    input {
-        background: ${colors.secondPurple};
-        border: none;
-        padding: 15px 5px;
-        width: 100%;
-        border-radius: 5px;
-
-        ${media.medium`
-            background-color: ${colors.secondGreen};
-        `}
-    }
-
-    ${media.medium`
-        background-color: ${colors.mainGreen};
-    `}
-`
 /*
     Form propTypes
 */

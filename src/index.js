@@ -16,6 +16,10 @@ import configureStore from './store'
 
 (() => injectGlobal`
     ${styledNormalize}
+    ul, ol {
+        list-style: none;
+        padding: 0;
+    }
     * {
         font-family: 'Roboto';
         box-sizing: border-box;
