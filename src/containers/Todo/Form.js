@@ -7,27 +7,48 @@ import {todoUpdateCurrent, todoAdd} from './TodoFeatures'
 import Input from '../../components/Form/Input'
 import BasicForm from '../../components/Form/BasicForm'
 
-const Form = (props) => {
-    const {currentTodo, todoUpdateCurrent, todoAdd} = props
-    const updateCurrentHandler = evt => {
-        todoUpdateCurrent(evt.target.value)
+class Form extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            value: props.currentTodo
+        }
+        this.onChangeHandler = this.onChangeHandler.bind(this)
+        this.submitHandler = this.submitHandler.bind(this)
     }
-    const submitHandler = (e) => {
-        e.preventDefault()
-        todoAdd({
-            id: Math.floor(Math.random() * (5000 - 5) + 5),
-            task: props.currentTodo,
-            done: false
+    onChangeHandler(evt) {
+        const {value} = evt.target
+        this.setState({
+            value: value
+        })
+        this.props.todoUpdateCurrent(value)
+    }
+    submitHandler(evt) {
+        evt.preventDefault()
+        const {currentTodo, todoAdd} = this.props
+        if (currentTodo !== ''){
+            todoAdd({
+                id: Math.floor(Math.random() * (5000 - 5) + 5),
+                task: currentTodo,
+                done: false
+            })
+        }
+        this.setState({
+            value: ''
         })
     }
-    return (
-        <BasicForm onSubmit={submitHandler}>
-            <Input type="text"
-                onChange={updateCurrentHandler}
-                value={currentTodo}
-                placeholder="Insert task" />
-        </BasicForm>
-    )
+    render(){
+        const {value} = this.state
+        return (
+            <BasicForm onSubmit={this.submitHandler}>
+                <Input type="text"
+                    onChange={this.onChangeHandler}
+                    value={value}
+                    placeholder="Insert task" />
+            </BasicForm>
+        )
+    }
+
 }
 /*
     Form propTypes
@@ -36,8 +57,9 @@ Form.propTypes = {
     currentTodo: PropTypes.string,
     todoUpdateCurrent: PropTypes.func,
     todoAdd: PropTypes.func,
+    value: PropTypes.string
 }
 export default connect(
-    (state) => ({currentTodo: state.reducerTodo.currentTodo, todos: state.reducerTodo.todos}),
+    (state) => ({currentTodo: state.reducerTodo.currentTodo}),
     {todoUpdateCurrent, todoAdd}
 )(Form)

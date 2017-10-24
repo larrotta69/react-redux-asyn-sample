@@ -24,7 +24,7 @@ function* getAllTodosCall() {
 function* getAllTodos() {
     yield sagasOperation(function* () {
         const todos = yield call(getTodosAPI)
-        yield put({type: TODOS_GET_SUCCESS, todos: [...todos]})
+        yield put({type: TODOS_GET_SUCCESS, todos: todos})
     })
 }
 /*

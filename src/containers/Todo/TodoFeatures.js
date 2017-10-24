@@ -69,4 +69,7 @@ export const filterTodo = (todos, filter = 'all') => {
 /*
     Todo defaultState
 */
-const defaultState = {}
+const defaultState = {
+    currentTodo: '',
+    todos: []
+}

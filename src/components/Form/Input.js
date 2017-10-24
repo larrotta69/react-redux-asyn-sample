@@ -5,29 +5,15 @@ import styled from 'styled-components'
 import {colors} from '../../styles/variables'
 import {media} from '../../styles/mixins'
 
-class Input extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            value: props.value
-        }
-        this.handleChange = this.handleChange.bind(this)
-    }
-    handleChange(e){
-        const {onChange} = this.props
-        onChange(e)
-    }
-    render(){
-        const {type, placeholder} = this.props
-        const {value} = this.state
-        return (
-            <StyledInput type={type}
-                onChange={this.handleChange}
-                value={value}
-                placeholder={placeholder}
-            />
-        )
-    }
+const Input = (props) => {
+    const {value, type, placeholder, onChange} = props
+    return (
+        <StyledInput type={type}
+            onChange={onChange}
+            value={value}
+            placeholder={placeholder}
+        />
+    )
 }
 /*
     Input Styles
