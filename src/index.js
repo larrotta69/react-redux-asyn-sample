@@ -5,7 +5,6 @@ import { BrowserRouter, Switch} from 'react-router-dom'
 
 import { injectGlobal } from 'styled-components'
 import styledNormalize from 'styled-normalize'
-import 'roboto-npm-webfont'
 
 import {Provider} from 'react-redux'
 

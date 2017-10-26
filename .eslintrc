@@ -22,6 +22,7 @@
         "semi": ["error", "never"],
         "no-console": 1,
         "react/jsx-no-bind": [2, {}],
+        "react/display-name": 0,
         "prefer-destructuring": ["error", {"object": false, "array": false}]
     }
 }

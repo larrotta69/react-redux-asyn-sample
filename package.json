@@ -14,7 +14,6 @@
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.15.6",
-    "roboto-npm-webfont": "^0.0.4",
     "styled-components": "^2.2.1",
     "styled-media-query": "^2.0.1",
     "styled-normalize": "^2.2.1",
