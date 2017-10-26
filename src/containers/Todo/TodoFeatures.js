@@ -32,9 +32,7 @@ export const todoUpdate = currentTodo => {
 export const reducerTodo = (state = defaultState, action) => {
     switch (action.type) {
         case TODO_ADD: {
-            const todos = [...state.todos]
-            todos.unshift(action.todo)
-            return {...state, todos: todos, currentTodo: ''}
+            return {...state, todos: [action.todo, ...state.todos], currentTodo: ''}
         }
         case TODO_REMOVE:
             return {...state,
@@ -48,6 +46,7 @@ export const reducerTodo = (state = defaultState, action) => {
         case TODO_UPDATE_CURRENT:
             return {...state, currentTodo: action.currentTodo}
         case TODOS_GET_SUCCESS:
+            action.todos.reverse()
             return {...state, todos: action.todos}
         case TODOS_GET: default:
             return state
