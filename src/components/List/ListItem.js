@@ -2,30 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import styledProps from 'styled-props'
+import {onlyUpdateForKeys} from 'recompose'
 
 import Checkbox from '../Form/Checkbox'
 
 import {box} from '../../styles/mixins'
 import {colors} from '../../styles/variables'
 
+const handlerCurrying = (callback, arg) => () => {
+    callback(arg)
+}
+
 const ListItem = (props) => {
     const {done, task, id, removeHandler, updateHandler} = props
     const currentTodo = {id, task, done}
-
-    const handleChangeCheckbox = () => {
-        updateHandler(currentTodo)
-    }
-
-    const handleClickRemove = () => {
-        removeHandler(id)
-    }
 
     return <StyledListItem done={done}>
         <StyledTaskItem done={done}>{task}</StyledTaskItem>
         {id ?
             (<div>
-                <Checkbox change={handleChangeCheckbox} isChecked={done} />
-                <StyledRemoveItem onClick={handleClickRemove}>✖</StyledRemoveItem>
+                <Checkbox change={handlerCurrying(updateHandler, currentTodo)} isChecked={done} />
+                <StyledRemoveItem onClick={handlerCurrying(removeHandler, id)}>✖</StyledRemoveItem>
             </div>)
         : null}
     </StyledListItem>
@@ -73,4 +70,4 @@ ListItem.propTypes = {
     updateHandler: PropTypes.func,
 }
 
-export default ListItem
+export default onlyUpdateForKeys(['done'])(ListItem)

@@ -71,10 +71,10 @@ App.propTypes = {
 
 
 export default connect(
-    (state) => ({
-        isError: state.reducerError.isError,
-        errorMsg: state.reducerError.errorMsg,
-        isLoaderOn: state.reducerLoader.isLoaderOn
+    ({reducerError, reducerLoader}) => ({
+        isError: reducerError.isError,
+        errorMsg: reducerError.errorMsg,
+        isLoaderOn: reducerLoader.isLoaderOn
     }),
     {errorReset}
 )(App)
