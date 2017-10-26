@@ -6,9 +6,8 @@ import {todoRemove, todoUpdate, todosGet, filterTodo} from './TodoFeatures'
 import ListItem from './../../components/List/ListItem'
 
 class TodoList extends React.Component {
-    constructor(props){
-        super(props)
-        props.todosGet()
+    componentWillMount(){
+        this.props.todosGet()
     }
     render() {
         const {todos, todoRemove, todoUpdate} = this.props

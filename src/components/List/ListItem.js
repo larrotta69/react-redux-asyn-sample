@@ -9,7 +9,7 @@ import Checkbox from '../Form/Checkbox'
 import {box} from '../../styles/mixins'
 import {colors} from '../../styles/variables'
 
-const handlerCurrying = (callback, arg) => () => {
+const handlerCurrying = (callback, arg = null) => () => {
     callback(arg)
 }
 
