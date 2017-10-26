@@ -59,6 +59,6 @@ TodoForm.propTypes = {
     value: PropTypes.string
 }
 export default connect(
-    (state) => ({currentTodo: state.reducerTodo.currentTodo}),
+    ({reducerTodo}) => ({currentTodo: reducerTodo.currentTodo}),
     {todoUpdateCurrent, todoAdd}
 )(TodoForm)

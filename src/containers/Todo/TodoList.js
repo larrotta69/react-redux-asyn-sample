@@ -36,6 +36,6 @@ TodoList.propTypes = {
     currentFilter:  PropTypes.string,
 }
 export default connect(
-    (state, ownProps) => ({todos: filterTodo(state.reducerTodo.todos, ownProps.currentFilter)}),
+    ({reducerTodo}, {currentFilter}) => ({todos: filterTodo(reducerTodo.todos, currentFilter)}),
     {todoRemove, todoUpdate, todosGet}
 )(TodoList)
