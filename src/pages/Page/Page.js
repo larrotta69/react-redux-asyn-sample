@@ -36,7 +36,6 @@ class App extends React.Component {
     render() {
         const {isLoading, isError} = this.state
         const {errorMsg} = this.props
-        console.log('da')
         return (
             <StyledApp>
                 {this.props.children}
