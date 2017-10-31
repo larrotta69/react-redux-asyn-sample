@@ -43,8 +43,8 @@ export default Home
 //
 // const WithLoading = Component => props => {
 //     console.log(props.isLoaderOn)
-//     return <Component {...props} />
-//     // return props.isLoaderOn ? <Loader /> : <Component {...props} />
+//     // return <Component {...props} />
+//     return props.isLoaderOn ? <Loader /> : <Component {...props} />
 //     // return branch((props) => props.isLoaderOn, <Loader />)
 //     // return <Component {...props} />
 // }
