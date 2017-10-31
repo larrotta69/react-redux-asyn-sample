@@ -1,7 +1,7 @@
 import { call, put, all, takeEvery, takeLatest } from 'redux-saga/effects'
 
 import {ERROR_ON} from '../../containers/Error/ErrorFeatures'
-import {LOADER_ON, LOADER_OFF} from '../../containers/Loader/LoaderFeatures'
+import {LOADER} from '../../containers/Loader/LoaderFeatures'
 
 import {TODOS_GET, TODOS_GET_SUCCESS, TODO_ADD, TODO_REMOVE, TODO_UPDATE, } from './TodoFeatures'
 
@@ -65,9 +65,9 @@ function* updateTodo(action) {
 */
 function* sagasOperation(operation) {
     try {
-        yield put({type: LOADER_ON})
+        yield put({type: LOADER, isLoader: true})
         yield operation()
-        yield put({type: LOADER_OFF})
+        yield put({type: LOADER, isLoader: false})
     } catch (error) {
         yield put({type: ERROR_ON, errorMsg: `${error}`})
     }

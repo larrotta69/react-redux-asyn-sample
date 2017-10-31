@@ -1,26 +1,20 @@
 /*
     Loader Actions
 */
-export const LOADER_ON = 'LOADER_ON'
-export const LOADER_OFF = 'LOADER_OFF'
+export const LOADER = 'LOADER'
 /*
     Loader Actions Creators
 */
-export const setLoaderOn = () => {
-    return {type: LOADER_ON}
-}
-export const setLoaderOff = () => {
-    return {type: LOADER_OFF}
+export const toggleLoader = (isLoader) => {
+    return {type: LOADER, isLoader}
 }
 /*
     Loader Reducer
 */
 export const reducerLoader = (state = defaultState, action) => {
     switch (action.type) {
-        case LOADER_ON:
-            return {...state, isLoaderOn: true, dan: 'dan'}
-        case LOADER_OFF:
-            return {...state, isLoaderOn: false}
+        case LOADER:
+            return {...state, isLoaderOn: action.isLoader}
         default:
             return state
     }
