@@ -8,11 +8,11 @@ import Footer from '../../components/Footer/Footer'
 
 const Layout = ({component: Component, ...rest}) => {
     const handlerRender = (matchProps) => {
-        return (<div>
-            <Header />
-            <Component {...matchProps} />
-            <Footer />
-        </div>)
+        return [
+            <Header key="header" />,
+            <Component key="main" {...matchProps} />,
+            <Footer key="footer" />
+        ]
     }
     return (
         <Route {...rest} render={handlerRender} />

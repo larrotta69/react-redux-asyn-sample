@@ -8,6 +8,6 @@ export const WithLoading = Component => props => {
 }
 
 export const WithError = Component => props => {
-    const errorEl = props.isError ? <Error errorMsg={props.errorMsg} /> : null // eslint-disable-line
-    return <div> {errorEl} <Component {...props} /></div>
+    const errorEl = props.isError ? <Error key="error" errorMsg={props.errorMsg} /> : null // eslint-disable-line
+    return [ <Component key="Comp" {...props} />, errorEl ]
 }
