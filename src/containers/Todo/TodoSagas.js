@@ -69,6 +69,6 @@ function* sagasOperation(operation) {
         yield operation()
         yield put({type: LOADER, isLoader: false})
     } catch (error) {
-        yield put({type: ERROR_ON, errorMsg: `${error}`})
+        yield put({type: ERROR_ON, errorMsg: `${error}`, isLoader: false})
     }
 }
