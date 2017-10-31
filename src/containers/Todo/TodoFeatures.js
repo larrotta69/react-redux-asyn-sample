@@ -47,7 +47,7 @@ export const reducerTodo = (state = defaultState, action) => {
             return {...state, currentTodo: action.currentTodo}
         case TODOS_GET_SUCCESS:
             action.todos.reverse()
-            return {...state, todos: action.todos}
+            return {...state, todos: action.todos, todosLoaded: true}
         case TODOS_GET: default:
             return state
     }
@@ -70,5 +70,6 @@ export const filterTodo = (todos, filter = 'all') => {
 */
 const defaultState = {
     currentTodo: '',
-    todos: []
+    todos: [],
+    todosLoaded: false
 }
