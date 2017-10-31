@@ -7,7 +7,7 @@ import TodoForm from './../../containers/Todo/TodoForm'
 import TodoList from './../../containers/Todo/TodoList'
 import Filters from './../../components/Filters/Filters'
 
-import {WithError, WithLoading} from './../../HOC/index'
+import {WithError, WithLoading} from './../../HOC'
 
 import filterOptions from '../../api/filters'
 
