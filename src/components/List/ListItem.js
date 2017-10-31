@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import styledProps from 'styled-props'
-import {onlyUpdateForKeys} from 'recompose'
 
 import Checkbox from '../Form/Checkbox'
 
@@ -70,4 +69,4 @@ ListItem.propTypes = {
     updateHandler: PropTypes.func,
 }
 
-export default onlyUpdateForKeys(['done'])(ListItem)
+export default ListItem
