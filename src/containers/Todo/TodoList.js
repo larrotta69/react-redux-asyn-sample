@@ -7,7 +7,6 @@ import ListItem from './../../components/List/ListItem'
 
 class TodoList extends React.Component {
     componentWillMount(){
-        console.log(this.props)
         if (!this.props.todosLoaded) {
             this.props.todosGet()
         }
@@ -35,7 +34,8 @@ TodoList.propTypes = {
     todoRemove: PropTypes.func,
     todoUpdate: PropTypes.func,
     todosGet: PropTypes.func,
-    currentFilter:  PropTypes.string,
+    currentFilter: PropTypes.string,
+    todosLoaded: PropTypes.bool
 }
 export default connect(
     ({reducerTodo}, {currentFilter}) => ({todos: filterTodo(reducerTodo.todos, currentFilter), todosLoaded: reducerTodo.todosLoaded}),
