@@ -13,11 +13,12 @@ import filterOptions from '../../api/filters'
 
 const Home = (props) => {
     const {match} = props
+    const {params: {filter}} = match
     return (
         <main>
             <TodoForm />
-            <Filters filtersContent={filterOptions} currentFilter={match.params.filter}/>
-            <TodoList currentFilter={match.params.filter} />
+            <Filters filtersContent={filterOptions} currentFilter={filter}/>
+            <TodoList currentFilter={filter} />
         </main>
     )
 }

@@ -13,6 +13,7 @@ import Error404 from './pages/Error/Error404'
 import Layout from './pages/Layout/Layout'
 import configureStore from './store'
 
+
 (() => injectGlobal`
     ${styledNormalize}
     ul, ol {
